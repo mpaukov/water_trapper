@@ -1,0 +1,30 @@
+<template>
+  <input :type="type" :min="min" :max="max" :value="value" />
+</template>
+
+<script>
+export default {
+  name: "DefaultInput",
+  props: {
+    type: {
+      type: String,
+      default: "Number",
+    },
+    value: {
+      type: Number,
+      default: 0,
+    },
+    min: {
+      type: Number,
+      default: 0,
+    },
+    max: {
+      type: Number,
+      default: 10,
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+</style>
