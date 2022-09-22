@@ -1,5 +1,12 @@
 <template>
-  <input :type="type" :min="min" :max="max" :value="value" />
+  <input
+    :type="type"
+    :min="min"
+    :max="max"
+    :value="value"
+    :disabled="disabled"
+    class="input"
+  />
 </template>
 
 <script>
@@ -8,7 +15,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: "Number",
+      default: "number",
     },
     value: {
       type: Number,
@@ -22,9 +29,16 @@ export default {
       type: Number,
       default: 10,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.input {
+  text-align: right;
+}
 </style>

@@ -1,10 +1,16 @@
 <template>
-  <input type="checkbox" />
+  <input type="checkbox" :checked="checked" />
 </template>
 
 <script>
 export default {
   name: "CheckBox",
+  props: {
+    checked: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
 
