@@ -1,4 +1,8 @@
 <template>
+  <h1 class="title">Water trapper</h1>
+  <p class="text">
+    It can catch <span class="span">{{ waterUnits }}</span> units of water
+  </p>
   <ul class="inputs-wrapper">
     <li v-for="item in inputsDefaultData" :key="item.id" :id="item.id">
       <CheckBox :checked="item.checked" @click="handleCheckBox" />
@@ -39,6 +43,7 @@ export default {
   data() {
     return {
       inputsDefaultData: data,
+      waterUnits: 0,
     };
   },
   computed: {
@@ -67,7 +72,9 @@ export default {
           waterArr.push({ pos: right, val: rightMax - this.array[right] });
         }
       }
-      return waterArr.sort((a, b) => a.pos - b.pos).map((el) => el.val);
+      const temp = waterArr.sort((a, b) => a.pos - b.pos).map((el) => el.val);
+      this.units(temp);
+      return temp;
     },
   },
   methods: {
@@ -93,6 +100,10 @@ export default {
         return input;
       });
     },
+    units(arr) {
+      this.waterUnits = arr.reduce((acc, el) => acc + el, 0);
+      return this.waterUnits;
+    },
   },
 };
 </script>
@@ -105,6 +116,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.span {
+  font-weight: 700;
 }
 .inputs-wrapper {
   display: flex;
