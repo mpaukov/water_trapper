@@ -108,9 +108,11 @@ export default {
 }
 .inputs-wrapper {
   display: flex;
-  flex-wrap: nowrap;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: space-evenly;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .mainBox {
   display: flex;
